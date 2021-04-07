@@ -31,7 +31,7 @@ public class FileSystemInputOutputAndXpsOutput {
         TeX.typeset("hello-world", new XpsDevice(), options);
 
         // For further output to look write.
-        options.getTerminalOut().getWriter().newLine(); // The same as Console.Out.WriteLine();
+        options.getTerminalOut().getWriter().newLine(); // The same as System.out.println();
         // ExEnd:TakeInputFromFileSystem-WriteOutputToFileSystem-WriteTerminalOutputToConsole
 	}
 }
