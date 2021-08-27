@@ -7,8 +7,8 @@ import com.aspose.tex.FormatProvider;
 import com.aspose.tex.IInputWorkingDirectory;
 import com.aspose.tex.InputFileSystemDirectory;
 import com.aspose.tex.OutputFileSystemDirectory;
-import com.aspose.tex.TeX;
 import com.aspose.tex.TeXConfig;
+import com.aspose.tex.TeXJob;
 import com.aspose.tex.TeXOptions;
 import com.aspose.tex.rendering.XpsDevice;
 
@@ -33,8 +33,9 @@ public class TypesetWithCustomTeXFormat {
             options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
 
             // Run typesetting.
-            TeX.typeset(new ByteArrayInputStream(
-                    "Congratulations! You have successfully typeset this text with your own TeX format!\\end".getBytes("ASCII")), new XpsDevice(), options);
+            new TeXJob(new ByteArrayInputStream(
+                    "Congratulations! You have successfully typeset this text with your own TeX format!\\end".getBytes("ASCII")), new XpsDevice(), options).run();
+            
 
             // For further output to look write.
             options.getTerminalOut().getWriter().newLine();

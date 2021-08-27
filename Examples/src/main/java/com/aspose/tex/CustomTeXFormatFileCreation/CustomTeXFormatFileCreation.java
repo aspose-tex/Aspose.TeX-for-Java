@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import com.aspose.tex.InputFileSystemDirectory;
 import com.aspose.tex.OutputFileSystemDirectory;
-import com.aspose.tex.TeX;
 import com.aspose.tex.TeXConfig;
+import com.aspose.tex.TeXJob;
 import com.aspose.tex.TeXOptions;
 
 import util.Utils;
@@ -23,7 +23,7 @@ public class CustomTeXFormatFileCreation {
         options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
 
         // Run format creation.
-        TeX.createFormat("customtex", options);
+        TeXJob.createFormat("customtex", options);
 
         // For further output to look write.
         options.getTerminalOut().getWriter().newLine();

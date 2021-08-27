@@ -5,8 +5,8 @@ import java.io.IOException;
 import com.aspose.tex.InputFileSystemDirectory;
 import com.aspose.tex.OutputFileSystemDirectory;
 import com.aspose.tex.OutputFileTerminal;
-import com.aspose.tex.TeX;
 import com.aspose.tex.TeXConfig;
+import com.aspose.tex.TeXJob;
 import com.aspose.tex.TeXOptions;
 import com.aspose.tex.rendering.XpsDevice;
 
@@ -30,7 +30,8 @@ public class OverridenJobNameAndTerminalOutputWrittenToDisk {
         options.setTerminalOut(new OutputFileTerminal(options.getOutputWorkingDirectory()));
 
         // Run typesetting.
-        TeX.typeset("hello-world", new XpsDevice(), options);
+        TeXJob job = new TeXJob("hello-world", new XpsDevice(), options);
+        job.run();
         // ExEnd:OverrideJobName-WriteTerminalOutputToFileSystem
 	}
 }

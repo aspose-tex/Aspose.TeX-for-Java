@@ -9,8 +9,8 @@ import java.io.OutputStream;
 import com.aspose.tex.InputZipDirectory;
 import com.aspose.tex.OutputFileTerminal;
 import com.aspose.tex.OutputZipDirectory;
-import com.aspose.tex.TeX;
 import com.aspose.tex.TeXConfig;
+import com.aspose.tex.TeXJob;
 import com.aspose.tex.TeXOptions;
 import com.aspose.tex.rendering.PdfDevice;
 import com.aspose.tex.rendering.PdfSaveOptions;
@@ -48,7 +48,7 @@ public class TypesetPdfWrittenToExternalStream {
 	            // 2) A file in the output ZIP. A wierd feature that extends flexibilty :)
 	            //final OutputStream stream = options.getOutputWorkingDirectory().getFile("file-name.pdf", new String[]{ null }); // writing PDF to the same ZIP
 	            try {
-	                TeX.typeset("hello-world", new PdfDevice(stream), options);
+	                new TeXJob("hello-world", new PdfDevice(stream), options).run();
 	            }
 	            finally {
 	            	stream.close();

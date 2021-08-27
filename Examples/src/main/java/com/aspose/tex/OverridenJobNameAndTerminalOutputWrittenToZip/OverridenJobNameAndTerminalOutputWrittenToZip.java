@@ -9,8 +9,8 @@ import java.io.OutputStream;
 import com.aspose.tex.InputZipDirectory;
 import com.aspose.tex.OutputFileTerminal;
 import com.aspose.tex.OutputZipDirectory;
-import com.aspose.tex.TeX;
 import com.aspose.tex.TeXConfig;
+import com.aspose.tex.TeXJob;
 import com.aspose.tex.TeXOptions;
 import com.aspose.tex.rendering.PdfDevice;
 import com.aspose.tex.rendering.PdfSaveOptions;
@@ -43,7 +43,7 @@ public class OverridenJobNameAndTerminalOutputWrittenToZip {
 	            // Create and specify saving options.
 	            options.setSaveOptions(new PdfSaveOptions());
 	            // Run typesetting.
-	            TeX.typeset("hello-world", new PdfDevice(), options);
+	            new TeXJob("hello-world", new PdfDevice(), options).run();
 	
 	            // Finalize output ZIP archive.
 	            ((OutputZipDirectory)options.getOutputWorkingDirectory()).finish();

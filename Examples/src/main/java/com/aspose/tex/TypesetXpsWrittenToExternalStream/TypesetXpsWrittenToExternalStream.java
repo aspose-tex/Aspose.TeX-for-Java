@@ -7,8 +7,8 @@ import java.io.OutputStream;
 import com.aspose.tex.InputFileSystemDirectory;
 import com.aspose.tex.OutputFileSystemDirectory;
 import com.aspose.tex.OutputFileTerminal;
-import com.aspose.tex.TeX;
 import com.aspose.tex.TeXConfig;
+import com.aspose.tex.TeXJob;
 import com.aspose.tex.TeXOptions;
 import com.aspose.tex.rendering.XpsDevice;
 
@@ -35,7 +35,7 @@ public class TypesetXpsWrittenToExternalStream {
         final OutputStream stream = new FileOutputStream(Utils.getOutputDirectory() + options.getJobName() + ".xps");
         try {
             // Run typesetting.
-            TeX.typeset("hello-world", new XpsDevice(stream), options);
+            new TeXJob("hello-world", new XpsDevice(stream), options).run();
         }
         finally {
         	stream.close();

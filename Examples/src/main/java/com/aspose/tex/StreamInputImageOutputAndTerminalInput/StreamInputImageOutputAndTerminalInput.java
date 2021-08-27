@@ -7,8 +7,8 @@ import com.aspose.tex.InputConsoleTerminal;
 import com.aspose.tex.InputFileSystemDirectory;
 import com.aspose.tex.OutputConsoleTerminal;
 import com.aspose.tex.OutputFileSystemDirectory;
-import com.aspose.tex.TeX;
 import com.aspose.tex.TeXConfig;
+import com.aspose.tex.TeXJob;
 import com.aspose.tex.TeXOptions;
 import com.aspose.tex.rendering.ImageDevice;
 import com.aspose.tex.rendering.PngSaveOptions;
@@ -40,9 +40,10 @@ public class StreamInputImageOutputAndTerminalInput {
         // Create image device.
         ImageDevice device = new ImageDevice();
         // Run typesetting.
-        TeX.typeset(new ByteArrayInputStream(
+        TeXJob job = new TeXJob(new ByteArrayInputStream(
         		"\\hrule height 10pt width 95pt\\vskip10pt\\hrule height 5pt".getBytes("ASCII")),
                 device, options);
+        job.run();
 
         // When console prompts the input, type "ABC", press Enter, then type "\end" and press Enter again.
 

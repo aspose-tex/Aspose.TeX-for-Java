@@ -9,8 +9,8 @@ import java.io.OutputStream;
 import com.aspose.tex.InputZipDirectory;
 import com.aspose.tex.OutputConsoleTerminal;
 import com.aspose.tex.OutputZipDirectory;
-import com.aspose.tex.TeX;
 import com.aspose.tex.TeXConfig;
+import com.aspose.tex.TeXJob;
 import com.aspose.tex.TeXOptions;
 import com.aspose.tex.rendering.PdfDevice;
 import com.aspose.tex.rendering.PdfSaveOptions;
@@ -40,7 +40,8 @@ public class ZipFileInputOuputAndPdfOutput {
 	            // Create and specify saving options.
 	            options.setSaveOptions(new PdfSaveOptions());
 	            // Run typesetting.
-	            TeX.typeset("hello-world", new PdfDevice(), options);
+	            TeXJob job = new TeXJob("hello-world", new PdfDevice(), options);
+	            job.run();
 	
 	            // For consequent output to look write. 
 	            options.getTerminalOut().getWriter().newLine();

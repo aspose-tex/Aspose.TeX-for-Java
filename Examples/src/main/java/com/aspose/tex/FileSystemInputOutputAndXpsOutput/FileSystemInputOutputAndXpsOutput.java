@@ -5,8 +5,8 @@ import java.io.IOException;
 import com.aspose.tex.InputFileSystemDirectory;
 import com.aspose.tex.OutputConsoleTerminal;
 import com.aspose.tex.OutputFileSystemDirectory;
-import com.aspose.tex.TeX;
 import com.aspose.tex.TeXConfig;
+import com.aspose.tex.TeXJob;
 import com.aspose.tex.TeXOptions;
 import com.aspose.tex.rendering.XpsDevice;
 
@@ -28,7 +28,8 @@ public class FileSystemInputOutputAndXpsOutput {
         // Specify memory stream as output terminal, if you don't terminal output to be written to console.
         //options.setTerminalOut(new OutputMemoryTerminal());
         // Run typesetting.
-        TeX.typeset("hello-world", new XpsDevice(), options);
+        TeXJob job = new TeXJob("hello-world", new XpsDevice(), options);
+        job.run();
 
         // For further output to look write.
         options.getTerminalOut().getWriter().newLine(); // The same as System.out.println();
