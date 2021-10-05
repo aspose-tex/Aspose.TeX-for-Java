@@ -15,11 +15,11 @@ public class CustomTeXFormatFileCreation {
 		Utils.setLicense();
 		
 		// ExStart:CreateCustomTeXFormatFile
-        // Create typesetting options for no format on ObjectTeX engine extension.
+        // Create TeX engine options for no format on ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectIniTeX());
-        // Specify a file system working directory for input.
+        // Specify a file system working directory for the input.
         options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
-        // Specify a file system working directory for output.
+        // Specify a file system working directory for the output.
         options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
 
         // Run format creation.

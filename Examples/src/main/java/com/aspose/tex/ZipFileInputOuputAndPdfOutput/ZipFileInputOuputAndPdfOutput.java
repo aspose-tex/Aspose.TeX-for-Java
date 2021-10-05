@@ -22,24 +22,24 @@ public class ZipFileInputOuputAndPdfOutput {
 		Utils.setLicense();
 		
 		// ExStart:TakeInputFromZip-WriteOutputToZip
-        // Open a stream on a ZIP archive that will serve as the input working directory.
+        // Open the stream on the ZIP archive that will serve as the input working directory.
         final InputStream inZipStream = new FileInputStream(Utils.getInputDirectory() + "zip-in.zip");
         try {
-	        // Open a stream on a ZIP archive that will serve as the output working directory.
+	        // Open the stream on the ZIP archive that will serve as the output working directory.
 	        final OutputStream outZipStream = new FileOutputStream(Utils.getOutputDirectory() + "zip-pdf-out.zip");
 	        try {
-	            // Create typesetting options for default ObjectTeX format on ObjectTeX engine extension.
+	            // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
 	            TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
-	            // Specify a ZIP archive working directory for input.
+	            // Specify a ZIP archive working directory for the input.
 	            options.setInputWorkingDirectory(new InputZipDirectory(inZipStream, "in"));
-	            // Specify a ZIP archive working directory for output.
+	            // Specify a ZIP archive working directory for the output.
 	            options.setOutputWorkingDirectory(new OutputZipDirectory(outZipStream));
-	            // Specify console as output terminal.
+	            // Specify the console as the output terminal.
 	            options.setTerminalOut(new OutputConsoleTerminal()); // Default. Not necessary to specify.
 	
-	            // Create and specify saving options.
+	            // Define the saving options.
 	            options.setSaveOptions(new PdfSaveOptions());
-	            // Run typesetting.
+	            // Run the job.
 	            TeXJob job = new TeXJob("hello-world", new PdfDevice(), options);
 	            job.run();
 	

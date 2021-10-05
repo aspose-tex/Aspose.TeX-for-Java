@@ -17,19 +17,19 @@ public class OverridenJobNameAndTerminalOutputWrittenToDisk {
 		Utils.setLicense();
 		
 		// ExStart:OverrideJobName-WriteTerminalOutputToFileSystem
-        // Create typesetting options for default ObjectTeX format on ObjectTeX engine extension.
+        // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
         // Specify the job name. Otherwise, TeX.Typeset()'s method first argument will be taken as a job name.
         options.setJobName("overriden-job-name");
-        // Specify a file system working directory for input.
+        // Specify a file system working directory for the input.
         options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
-        // Specify a file system working directory for output.
+        // Specify a file system working directory for the output.
         options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
         // Specify that the terminal output must be written to a file in the output working directory.
         // The file name is <job_name>.trm.
         options.setTerminalOut(new OutputFileTerminal(options.getOutputWorkingDirectory()));
 
-        // Run typesetting.
+        // Run the job.
         TeXJob job = new TeXJob("hello-world", new XpsDevice(), options);
         job.run();
         // ExEnd:OverrideJobName-WriteTerminalOutputToFileSystem

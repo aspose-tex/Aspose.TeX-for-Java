@@ -17,17 +17,17 @@ public class FileSystemInputOutputAndXpsOutput {
 		Utils.setLicense();
 		
 		// ExStart:TakeInputFromFileSystem-WriteOutputToFileSystem-WriteTerminalOutputToConsole
-        // Create typesetting options for default ObjectTeX format on ObjectTeX engine extension.
+        // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
-        // Specify a file system working directory for input.
+        // Specify a file system working directory for the input.
         options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
-        // Specify a file system working directory for output.
+        // Specify a file system working directory for the output.
         options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
         // Specify console as output terminal.
         options.setTerminalOut(new OutputConsoleTerminal()); // Default. No need to specify.
-        // Specify memory stream as output terminal, if you don't terminal output to be written to console.
+        // Specify a memory stream as output terminal, if you don't want the terminal output to be written to the console.
         //options.setTerminalOut(new OutputMemoryTerminal());
-        // Run typesetting.
+        // Run the job.
         TeXJob job = new TeXJob("hello-world", new XpsDevice(), options);
         job.run();
 

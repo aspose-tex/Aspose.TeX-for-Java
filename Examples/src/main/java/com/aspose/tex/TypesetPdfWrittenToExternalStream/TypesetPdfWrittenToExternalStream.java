@@ -28,19 +28,19 @@ public class TypesetPdfWrittenToExternalStream {
 	        // Open a stream on a ZIP archive that will serve as the output working directory.
 	        final OutputStream outZipStream = new FileOutputStream(Utils.getOutputDirectory() + "typeset-pdf-to-external-stream.zip");
 	        try {
-	            // Create typesetting options for default ObjectTeX format on ObjectTeX engine extension.
+	            // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
 	            TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
 	            // Specify the job name.
 	            options.setJobName("typeset-pdf-to-external-stream"); // does NOT define the name of the output PDF.
-	            // Specify a ZIP archive working directory for input.
+	            // Specify a ZIP archive working directory the for input.
 	            options.setInputWorkingDirectory(new InputZipDirectory(inZipStream, "in"));
-	            // Specify a ZIP archive working directory for output.
+	            // Specify a ZIP archive working directory the for output.
 	            options.setOutputWorkingDirectory(new OutputZipDirectory(outZipStream));
 	            // Specify that the terminal output must be written to a file in the output working directory.
 	            // The file name is <job_name>.trm.
 	            options.setTerminalOut(new OutputFileTerminal(options.getOutputWorkingDirectory()));
 	
-	            // Create and specify saving options.
+	            // Define the saving options.
 	            options.setSaveOptions(new PdfSaveOptions());
 	            // Open a stream to write the output PDF to.
 	            // 1) A file somewhere on a local file system.

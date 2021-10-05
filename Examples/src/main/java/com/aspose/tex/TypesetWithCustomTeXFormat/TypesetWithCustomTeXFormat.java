@@ -19,22 +19,23 @@ public class TypesetWithCustomTeXFormat {
 		Utils.setLicense();
 		
 		// ExStart:TypesetWithCustomTeXFormat
-        // Create a file system input working directory.
+        // Create the file system input working directory.
         IInputWorkingDirectory wd = new InputFileSystemDirectory(Utils.getOutputDirectory());
-        // Create a format provider.
+        // Create the format provider.
         final FormatProvider formatProvider = new FormatProvider(wd, "customtex");
         try {
-            // Create typesetting options for a custom format on ObjectTeX engine extension.
+            // Create conversion options for a custom format on ObjectTeX engine extension.
             TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX(formatProvider));
             options.setJobName("typeset-with-custom-format");
             // Specify the input working directory.
             options.setInputWorkingDirectory(wd);
-            // Specify a file system working directory for output.
+            // Specify a file system working directory for the output.
             options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
 
-            // Run typesetting.
+            // Run teh job.
             new TeXJob(new ByteArrayInputStream(
-                    "Congratulations! You have successfully typeset this text with your own TeX format!\\end".getBytes("ASCII")), new XpsDevice(), options).run();
+                    "Congratulations! You have successfully typeset this text with your own TeX format!\\end".getBytes("ASCII")),
+            		new XpsDevice(), options).run();
             
 
             // For further output to look write.

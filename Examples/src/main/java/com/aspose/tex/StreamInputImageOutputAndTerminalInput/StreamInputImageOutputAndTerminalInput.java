@@ -20,32 +20,32 @@ public class StreamInputImageOutputAndTerminalInput {
 		Utils.setLicense();
 		
 		// ExStart:TakeMainInputFromStream-AuxFromFileSystem-TakeTerminalInputFromConsole-AlternativeImagesStorage
-        // Create typesetting options for default ObjectTeX format on ObjectTeX engine extension.
+        // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
         // Specify the job name.
         options.setJobName("stream-in-image-out");
-        // Specify a file system working directory for input.
+        // Specify a file system working directory for the input.
         options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
-        // Specify a file system working directory for output.
+        // Specify a file system working directory for the output.
         options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
-        // Specify console as input terminal.
+        // Specify the console as the input terminal.
         options.setTerminalIn(new InputConsoleTerminal());  // Default. No need to specify.
-        // Specify console as output terminal.
+        // Specify the console as the output terminal.
         options.setTerminalOut(new OutputConsoleTerminal()); // Default. No need to specify.
 
-        // Create and specify saving options.
+        // Define the saving options.
         PngSaveOptions pngOptions = new PngSaveOptions();
         pngOptions.setResolution(300);
         options.setSaveOptions(pngOptions);
-        // Create image device.
+        // Create the image device.
         ImageDevice device = new ImageDevice();
-        // Run typesetting.
+        // Run the job.
         TeXJob job = new TeXJob(new ByteArrayInputStream(
         		"\\hrule height 10pt width 95pt\\vskip10pt\\hrule height 5pt".getBytes("ASCII")),
                 device, options);
         job.run();
 
-        // When console prompts the input, type "ABC", press Enter, then type "\end" and press Enter again.
+        // When the console prompts the input, type "ABC", press Enter, then type "\end" and press Enter again.
 
         // For further output to look write. 
         options.getTerminalOut().getWriter().newLine();

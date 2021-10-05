@@ -19,22 +19,22 @@ public class TypesetXpsWrittenToExternalStream {
 		Utils.setLicense();
 		
 		// ExStart:WriteOutputXpsToExternalStream
-        // Create typesetting options for default ObjectTeX format on ObjectTeX engine extension.
+        // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
         // Specify a job name.
         options.setJobName("external-file-stream");
-        // Specify a file system working directory for input.
+        // Specify a file system working directory for the input.
         options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
-        // Specify a file system working directory for output.
+        // Specify a file system working directory for the output.
         options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
         // Specify that the terminal output must be written to a file in the output working directory.
         // The file name is <job_name>.trm.
         options.setTerminalOut(new OutputFileTerminal(options.getOutputWorkingDirectory()));
 
-        // Open a stream to write typeset XPS document. File name not necessarily the same as the job name.
+        // Open the stream to write typeset XPS document. The file name is not necessarily the same as the job name.
         final OutputStream stream = new FileOutputStream(Utils.getOutputDirectory() + options.getJobName() + ".xps");
         try {
-            // Run typesetting.
+            // Run the job.
             new TeXJob("hello-world", new XpsDevice(stream), options).run();
         }
         finally {
