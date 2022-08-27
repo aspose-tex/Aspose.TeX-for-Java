@@ -28,11 +28,11 @@ public class TypesetPdfWrittenToExternalStream {
 	        // Open a stream on a ZIP archive that will serve as the output working directory.
 	        final OutputStream outZipStream = new FileOutputStream(Utils.getOutputDirectory() + "typeset-pdf-to-external-stream.zip");
 	        try {
-	            // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
+	            // Create conversion options for default ObjectTeX format upon ObjectTeX engine extension.
 	            TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
-	            // Specify the job name.
+	            // Specify a job name.
 	            options.setJobName("typeset-pdf-to-external-stream"); // does NOT define the name of the output PDF.
-	            // Specify a ZIP archive working directory the for input.
+	            // Specify a ZIP archive working directory the for input. You can also specify a path inside the archive.
 	            options.setInputWorkingDirectory(new InputZipDirectory(inZipStream, "in"));
 	            // Specify a ZIP archive working directory the for output.
 	            options.setOutputWorkingDirectory(new OutputZipDirectory(outZipStream));
@@ -45,8 +45,8 @@ public class TypesetPdfWrittenToExternalStream {
 	            // Open a stream to write the output PDF to.
 	            // 1) A file somewhere on a local file system.
 	            final OutputStream stream = new FileOutputStream(Utils.getOutputDirectory() + "file-name.pdf"); // writing PDF somewhere else
-	            // 2) A file in the output ZIP. A wierd feature that extends flexibilty :)
-	            //final OutputStream stream = options.getOutputWorkingDirectory().getFile("file-name.pdf", new String[]{ null }); // writing PDF to the same ZIP
+	            // 2) A file in the output ZIP. A weird feature that extends flexibilty :)
+	            // final OutputStream stream = options.getOutputWorkingDirectory().getOutputFile("file-name.pdf", new String[]{ null }); // writing PDF to the same ZIP
 	            try {
 	                new TeXJob("hello-world", new PdfDevice(stream), options).run();
 	            }

@@ -20,18 +20,18 @@ public class StreamInputImageOutputAndTerminalInput {
 		Utils.setLicense();
 		
 		// ExStart:TakeMainInputFromStream-AuxFromFileSystem-TakeTerminalInputFromConsole-AlternativeImagesStorage
-        // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
+        // Create conversion options for default ObjectTeX format upon ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
-        // Specify the job name.
+        // Specify a job name.
         options.setJobName("stream-in-image-out");
         // Specify a file system working directory for the input.
         options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
         // Specify a file system working directory for the output.
         options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
         // Specify the console as the input terminal.
-        options.setTerminalIn(new InputConsoleTerminal());  // Default. No need to specify.
+        options.setTerminalIn(new InputConsoleTerminal());  // Default value. Arbitrary assignment.
         // Specify the console as the output terminal.
-        options.setTerminalOut(new OutputConsoleTerminal()); // Default. No need to specify.
+        options.setTerminalOut(new OutputConsoleTerminal()); // Default value. Arbitrary assignment.
 
         // Define the saving options.
         PngSaveOptions pngOptions = new PngSaveOptions();
@@ -47,7 +47,7 @@ public class StreamInputImageOutputAndTerminalInput {
 
         // When the console prompts the input, type "ABC", press Enter, then type "\end" and press Enter again.
 
-        // For further output to look write. 
+        // For further output to look fine. 
         options.getTerminalOut().getWriter().newLine();
 
         // You can alternatively get images in form of array of byte arrays.

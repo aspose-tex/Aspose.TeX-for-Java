@@ -21,12 +21,12 @@ public class LaTeXXpsConversionAlternative {
         // Create the stream to write the XPS file to.
         final OutputStream xpsStream = new FileOutputStream(Utils.getOutputDirectory() + "any-name.xps");
         try {
-            // Create conversion options for Object LaTeX format on Object TeX engine extension.
+            // Create conversion options for Object LaTeX format upon Object TeX engine extension.
             TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectLaTeX());
-            // Specify the file system working directory for the output.
+            // Specify a file system working directory for the output.
             options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
             // Initialize the options for saving in XPS format.
-            options.setSaveOptions(new XpsSaveOptions()); // Default value.
+            options.setSaveOptions(new XpsSaveOptions()); // Default value. Arbitrary assignment.
             // Run LaTeX to XPS conversion.
             new TeXJob(Utils.getInputDirectory() + "hello-world.ltx", new XpsDevice(xpsStream), options).run();
         } finally {

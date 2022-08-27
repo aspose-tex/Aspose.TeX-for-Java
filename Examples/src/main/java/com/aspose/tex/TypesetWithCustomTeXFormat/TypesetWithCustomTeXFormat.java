@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import com.aspose.tex.FormatProvider;
-import com.aspose.tex.IInputWorkingDirectory;
 import com.aspose.tex.InputFileSystemDirectory;
 import com.aspose.tex.OutputFileSystemDirectory;
 import com.aspose.tex.TeXConfig;
@@ -19,16 +18,17 @@ public class TypesetWithCustomTeXFormat {
 		Utils.setLicense();
 		
 		// ExStart:TypesetWithCustomTeXFormat
-        // Create the file system input working directory.
-        IInputWorkingDirectory wd = new InputFileSystemDirectory(Utils.getOutputDirectory());
-        // Create the format provider.
-        final FormatProvider formatProvider = new FormatProvider(wd, "customtex");
+        // Create the format provider using the file system input working directory.
+        // We use the project output directory as our custom format file is supposed to be located there.
+        final FormatProvider formatProvider = new FormatProvider(
+        		new InputFileSystemDirectory(Utils.getOutputDirectory()), "customtex");
         try {
-            // Create conversion options for a custom format on ObjectTeX engine extension.
+            // Create conversion options for a custom format upon ObjectTeX engine extension.
             TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX(formatProvider));
             options.setJobName("typeset-with-custom-format");
-            // Specify the input working directory.
-            options.setInputWorkingDirectory(wd);
+            // Specify the input working directory. This is not required here as we are providing the main input as a stream.
+            // But it is required when the main input has dependencies (e.g. images).
+            options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
             // Specify a file system working directory for the output.
             options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
 

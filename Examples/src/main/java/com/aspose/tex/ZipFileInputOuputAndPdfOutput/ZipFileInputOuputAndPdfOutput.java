@@ -28,14 +28,14 @@ public class ZipFileInputOuputAndPdfOutput {
 	        // Open the stream on the ZIP archive that will serve as the output working directory.
 	        final OutputStream outZipStream = new FileOutputStream(Utils.getOutputDirectory() + "zip-pdf-out.zip");
 	        try {
-	            // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
+	            // Create conversion options for default ObjectTeX format upon ObjectTeX engine extension.
 	            TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
-	            // Specify a ZIP archive working directory for the input.
+	            // Specify a ZIP archive working directory for the input. You can also specify a path inside the archive.
 	            options.setInputWorkingDirectory(new InputZipDirectory(inZipStream, "in"));
 	            // Specify a ZIP archive working directory for the output.
 	            options.setOutputWorkingDirectory(new OutputZipDirectory(outZipStream));
 	            // Specify the console as the output terminal.
-	            options.setTerminalOut(new OutputConsoleTerminal()); // Default. Not necessary to specify.
+	            options.setTerminalOut(new OutputConsoleTerminal()); // Default value. Arbitrary assignment.
 	
 	            // Define the saving options.
 	            options.setSaveOptions(new PdfSaveOptions());
@@ -43,7 +43,7 @@ public class ZipFileInputOuputAndPdfOutput {
 	            TeXJob job = new TeXJob("hello-world", new PdfDevice(), options);
 	            job.run();
 	
-	            // For consequent output to look write. 
+	            // For further output to look fine. 
 	            options.getTerminalOut().getWriter().newLine();
 	
 	            // Finalize output ZIP archive.

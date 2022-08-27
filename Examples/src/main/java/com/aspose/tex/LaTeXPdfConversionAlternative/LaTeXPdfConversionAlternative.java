@@ -21,9 +21,9 @@ public class LaTeXPdfConversionAlternative {
         // Create the stream to write the PDF file to.
         final OutputStream pdfStream = new FileOutputStream(Utils.getOutputDirectory() + "any-name.pdf");
         try {
-            // Create conversion options for Object LaTeX format on Object TeX engine extension.
+            // Create conversion options for Object LaTeX format upon Object TeX engine extension.
             TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectLaTeX());
-            // Specify the file system working directory for the output.
+            // Specify a file system working directory for the output.
             options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
             // Initialize the options for saving in PDF format.
             options.setSaveOptions(new PdfSaveOptions());

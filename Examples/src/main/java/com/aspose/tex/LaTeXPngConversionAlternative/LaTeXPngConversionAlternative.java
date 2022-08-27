@@ -18,12 +18,15 @@ public class LaTeXPngConversionAlternative {
 		Utils.setLicense();
 		
         // ExStart:Conversion-LaTeXToPng-Alternative
-        // Create conversion options for Object LaTeX format on Object TeX engine extension.
+        // Create conversion options for Object LaTeX format upon Object TeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectLaTeX());
-        // Specify the file system working directory for the output.
+        // Specify a file system working directory for the output.
         options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
         // Initialize the options for saving in PNG format.
-        options.setSaveOptions(new PngSaveOptions());
+        PngSaveOptions saveOptions = new PngSaveOptions();
+        // Set this property to instruct the device not to output images as you will access them alternatively.
+        saveOptions.deviceWritesImages(false);
+        options.setSaveOptions(saveOptions);
         // Run LaTeX to PNG conversion.
         ImageDevice device = new ImageDevice();
         new TeXJob(Utils.getInputDirectory() + "hello-world.ltx", device, options).run();

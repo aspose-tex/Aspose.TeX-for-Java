@@ -19,7 +19,7 @@ public class TypesetXpsWrittenToExternalStream {
 		Utils.setLicense();
 		
 		// ExStart:WriteOutputXpsToExternalStream
-        // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
+        // Create conversion options for default ObjectTeX format upon ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
         // Specify a job name.
         options.setJobName("external-file-stream");

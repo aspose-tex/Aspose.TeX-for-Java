@@ -15,7 +15,7 @@ public class CustomTeXFormatFileCreation {
 		Utils.setLicense();
 		
 		// ExStart:CreateCustomTeXFormatFile
-        // Create TeX engine options for no format on ObjectTeX engine extension.
+        // Create TeX engine options for no format upon ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectIniTeX());
         // Specify a file system working directory for the input.
         options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
@@ -25,7 +25,7 @@ public class CustomTeXFormatFileCreation {
         // Run format creation.
         TeXJob.createFormat("customtex", options);
 
-        // For further output to look write.
+        // For further output to look fine.
         options.getTerminalOut().getWriter().newLine();
         // ExEnd:CreateCustomTeXFormatFile
 	}

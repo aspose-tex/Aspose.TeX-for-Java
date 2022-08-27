@@ -28,11 +28,11 @@ public class OverridenJobNameAndTerminalOutputWrittenToZip {
 	        // Open a stream on a ZIP archive that will serve as the output working directory.
 	        final OutputStream outZipStream = new FileOutputStream(Utils.getOutputDirectory() + "terminal-out-to-zip.zip");
 	        try {
-	            // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
+	            // Create conversion options for default ObjectTeX format upon ObjectTeX engine extension.
 	            TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
-	            // Specify the job name.
+	            // Specify a job name.
 	            options.setJobName("terminal-output-to-zip");
-	            // Specify a ZIP archive working directory for the input.
+	            // Specify a ZIP archive working directory for the input. You can also specify a path inside the archive.
 	            options.setInputWorkingDirectory(new InputZipDirectory(inZipStream, "in"));
 	            // Specify a ZIP archive working directory for the output.
 	            options.setOutputWorkingDirectory(new OutputZipDirectory(outZipStream));

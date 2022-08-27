@@ -17,9 +17,9 @@ public class OverridenJobNameAndTerminalOutputWrittenToDisk {
 		Utils.setLicense();
 		
 		// ExStart:OverrideJobName-WriteTerminalOutputToFileSystem
-        // Create conversion options for default ObjectTeX format on ObjectTeX engine extension.
+        // Create conversion options for default ObjectTeX format upon ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
-        // Specify the job name. Otherwise, TeX.Typeset()'s method first argument will be taken as a job name.
+        // Specify a job name. Otherwise, the first argument of the TeXJob constructor will be taken as a job name.
         options.setJobName("overriden-job-name");
         // Specify a file system working directory for the input.
         options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
