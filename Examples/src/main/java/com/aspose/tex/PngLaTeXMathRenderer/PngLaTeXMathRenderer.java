@@ -15,9 +15,10 @@ public class PngLaTeXMathRenderer {
 	public static void main(String[] args) throws IOException {
 		Utils.setLicense();
 		
-		// ExStart:PngLaTeXMathRendering
+		// ExStart:Features-PngLaTeXMathRendering
         // Create rendering options setting the image resolution to 150 dpi.
         PngMathRendererOptions options = new PngMathRendererOptions();
+        // Specify the resolution.
         options.setResolution(150);
         // Specify the preamble.
         options.setPreamble("\\usepackage{amsmath}\r\n\\usepackage{amsfonts}\r\n\\usepackage{amssymb}\r\n\\usepackage{color}");
@@ -32,24 +33,22 @@ public class PngLaTeXMathRenderer {
         // Specify whether to show the terminal output on the console or not.
         options.showTerminal(true);
 
-        // The variable in which the dimensions of the resulting image will be written.
-        com.aspose.tex.Size2D size = new com.aspose.tex.Size2D.Float();
         // Create the output stream for the formula image.
         final OutputStream stream = new FileOutputStream(Utils.getOutputDirectory() + "math-formula.png");
         try {
             // Run rendering.
-            new PngMathRenderer().render("\\begin{equation*}\r\n" +
+        	com.aspose.tex.Size2D size = new PngMathRenderer().render("\\begin{equation*}\r\n" +
 "e^x = x^{\\color{red}0} + x^{\\color{red}1} + \\frac{x^{\\color{red}2}}{2} + \\frac{x^{\\color{red}3}}{6} + \\cdots = \\sum_{n\\geq 0} \\frac{x^{\\color{red}n}}{n!}\r\n" +
-"\\end{equation*}", stream, options, size);
+"\\end{equation*}", stream, options);
+            
+            // Show other results.
+            System.out.println(options.getErrorReport());
+            System.out.println();
+            System.out.println("Size: " + size.getWidth() + "x" + size.getHeight()); // Dimensions of the resulting image.
         } finally {
         	if (stream != null)
         		stream.close();
         }
-
-        // Show other results.
-        System.out.println(options.getErrorReport());
-        System.out.println();
-        System.out.println("Size: " + size.getWidth() + "x" + size.getHeight());
-        // ExEnd:PngLaTeXMathRendering
+        // ExEnd:Features-PngLaTeXMathRendering
 	}
 }

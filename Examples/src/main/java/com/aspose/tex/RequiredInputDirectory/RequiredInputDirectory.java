@@ -1,6 +1,5 @@
 package com.aspose.tex.RequiredInputDirectory;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +7,7 @@ import com.aspose.tex.IFileCollector;
 import com.aspose.tex.IInputWorkingDirectory;
 import com.aspose.tex.TeXInputStream;
 
-// ExStart:RequiredInputDirectory
+// ExStart:Conversion-RequiredInputDirectory
 // This is an implementation of IInputWorkingDirectory that is suitable for the TeX job's RequiredInputDirectory option
 // in case required input contains fonts provided by external packages.
 // The class additionally implements IFileCollector, which provides access to file collections by extension.
@@ -38,10 +37,9 @@ public class RequiredInputDirectory implements IInputWorkingDirectory, IFileColl
     }
 
     // The IInputWorkingDirectory implementation.
-    public TeXInputStream getFile(String fileName, /*out*/ String[] fullName, boolean searchSubdirectories) throws IOException
+    public TeXInputStream getFile(String fileName, boolean searchSubdirectories)
     {
-        fullName[0] = fileName;        
-        return null; // Here we actually return a stream for the file requested by its name.
+        return new TeXInputStream(null, fileName); // Here we actually return a stream for the file requested by its name.
     }
     
     // Here is how we gather file collections by extension.
@@ -87,4 +85,4 @@ public class RequiredInputDirectory implements IInputWorkingDirectory, IFileColl
     	_fileNames.clear();
     }
 }
-// ExEnd:RequiredInputDirectory
+// ExEnd:Conversion-RequiredInputDirectory

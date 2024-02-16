@@ -1,4 +1,4 @@
-package com.aspose.tex.OverridenJobNameAndTerminalOutputWrittenToDisk;
+package com.aspose.tex.OverriddenJobNameAndTerminalOutputWrittenToDisk;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import com.aspose.tex.rendering.XpsDevice;
 
 import util.Utils;
 
-public class OverridenJobNameAndTerminalOutputWrittenToDisk {
+public class OverriddenJobNameAndTerminalOutputWrittenToDisk {
 	public static void main(String[] args) throws IOException {
 		Utils.setLicense();
 		
@@ -20,7 +20,7 @@ public class OverridenJobNameAndTerminalOutputWrittenToDisk {
         // Create conversion options for default ObjectTeX format upon ObjectTeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectTeX());
         // Specify a job name. Otherwise, the first argument of the TeXJob constructor will be taken as a job name.
-        options.setJobName("overriden-job-name");
+        options.setJobName("overridden-job-name");
         // Specify a file system working directory for the input.
         options.setInputWorkingDirectory(new InputFileSystemDirectory(Utils.getInputDirectory()));
         // Specify a file system working directory for the output.
