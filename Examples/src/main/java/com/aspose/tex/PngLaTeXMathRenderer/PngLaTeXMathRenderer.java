@@ -18,7 +18,6 @@ public class PngLaTeXMathRenderer {
 		// ExStart:Features-PngLaTeXMathRendering
         // Create rendering options setting the image resolution to 150 dpi.
         PngMathRendererOptions options = new PngMathRendererOptions();
-        // Specify the resolution.
         options.setResolution(150);
         // Specify the preamble.
         options.setPreamble("\\usepackage{amsmath}\r\n\\usepackage{amsfonts}\r\n\\usepackage{amssymb}\r\n\\usepackage{color}");

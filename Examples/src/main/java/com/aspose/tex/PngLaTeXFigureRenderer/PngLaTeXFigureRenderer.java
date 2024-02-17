@@ -18,7 +18,6 @@ public class PngLaTeXFigureRenderer {
 		// ExStart:Features-PngLaTeXFigureRendering
         // Create rendering options setting the image resolution to 150 dpi.
         PngFigureRendererOptions options = new PngFigureRendererOptions();
-        // Specify the resolution.
         options.setResolution(150);
         // Specify the preamble.
         options.setPreamble("\\usepackage{pict2e}");
