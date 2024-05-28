@@ -31,7 +31,7 @@ public class LaTeXRepairerExample {
         // ExEnd:Features-LaTeXRepairer
 	}
 	
-	// ExStart:Features-LaTeXRepairer-PackageGueassingCallback
+	// ExStart:Features-LaTeXRepairer-PackageGuessingCallback
 	// The callback class to externally guess packages required for undefined commands or environments.
     public static class PackageGuesser implements IGuessPackageCallback
     {
@@ -56,5 +56,5 @@ public class LaTeXRepairerExample {
             return "";
         }
     }
-    // ExEnd:Features-LaTeXRepairer-PackageGueassingCallback
+    // ExEnd:Features-LaTeXRepairer-PackageGuessingCallback
 }
