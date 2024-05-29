@@ -47,7 +47,7 @@ public class LaTeXRepairerExample {
             if (!isEnvironment)
             {
             	String packageName = _map.get(commandName);
-                return packageName != null ? packageName : ""; // It's better to return an empty stream to avoid consequent calls for the same command name.
+                return packageName != null ? packageName : ""; // It's better to return an empty string to avoid consequent calls for the same command name.
             }
 
             // Some code for environments
