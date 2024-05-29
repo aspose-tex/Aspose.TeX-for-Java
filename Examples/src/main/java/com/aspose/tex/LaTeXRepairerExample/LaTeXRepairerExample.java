@@ -17,7 +17,7 @@ public class LaTeXRepairerExample {
 		Utils.setLicense();
 		
 		// ExStart:Features-LaTeXRepairer
-        // Create conversion options for Object LaTeX format upon Object TeX engine extension.
+        // Create repair options.
         LaTeXRepairerOptions options = new LaTeXRepairerOptions();
         // Specify a file system working directory for the output.
         options.setOutputWorkingDirectory(new OutputFileSystemDirectory(Utils.getOutputDirectory()));
@@ -26,7 +26,7 @@ public class LaTeXRepairerExample {
         options.setRequiredInputDirectory(new InputFileSystemDirectory(Utils.getInputDirectory() + "packages"));
         // Specify the callback class to externally guess packages required for undefined commands or environments.
         options.setGuessPackageCallback(new PackageGuesser());
-        // Run LaTeX to PNG conversion.
+        // Run the repair process.
         new LaTeXRepairer(Utils.getInputDirectory() + "invalid-latex.tex", options).run();
         // ExEnd:Features-LaTeXRepairer
 	}
