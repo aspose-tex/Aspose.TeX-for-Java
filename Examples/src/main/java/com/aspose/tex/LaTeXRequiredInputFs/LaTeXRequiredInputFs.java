@@ -15,6 +15,7 @@ import util.Utils;
 class LaTeXRequiredInputFs {
 	public static void main(String[] args) throws IOException {
 		Utils.setLicense();
+		
         // ExStart:Conversion-RequiredInput-FileSystem
         // Create conversion options for Object LaTeX format upon Object TeX engine extension.
         TeXOptions options = TeXOptions.consoleAppOptions(TeXConfig.objectLaTeX());
